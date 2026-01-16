@@ -1,0 +1,33 @@
+version: "3"
+services:
+  web:
+    depends_on:
+      - api
+    build:
+       context: ./client
+       dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    env_file: ./client/.env
+
+  api:
+    depends_on:
+      - db
+    build:
+       context: ./server
+       dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    env_file: ./server/.env
+
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - anime:/data/db
+    env_file: ./server/.env
+
+volumes:
+  anime:
+~
