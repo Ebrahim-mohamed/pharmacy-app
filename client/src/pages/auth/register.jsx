@@ -13,34 +13,32 @@ const initialState = {
 };
 
 const AuthRegister = () => {
-
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {toast} = useToast()
+  const { toast } = useToast();
   function onSubmit(event) {
     event.preventDefault();
+
     if (!formData.username || !formData.email || !formData.password) {
-      // Handle missing fields
-      console.log('All fields are required.');
+      toast({ title: "All fields are required" });
       return;
     }
-    
+
     dispatch(registerUser(formData)).then((data) => {
-      if(data?.payload?.success){
+      if (data.success) {
         toast({
-          title: data?.payload?.message,
-        })
-        navigate('/auth/login')
+          title: data.message,
+        });
+        navigate("/auth/login");
       } else {
         toast({
-          title: data?.payload?.message
-        })
+          title: data.message,
+        });
       }
-    } )
-    
+    });
   }
-  
+
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
       <div className=" text-center">

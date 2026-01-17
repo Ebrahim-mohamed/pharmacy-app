@@ -18,10 +18,9 @@ const shopReviewRouter = require("./routes/shop/review-routes");
 
 const commonFeatureRouter = require("./routes/common/feature-routes");
 
-
 mongoose
   .connect(
-    process.env.MONGODB_URI,
+    "mongodb+srv://ibrahim20210007_db_user:xSlaJjhI6Qf4btrX@gradproject.zbhzqfa.mongodb.net/?appName=gradproject",
   )
   .then(() => {
     console.log("Connected to MongoDB");
@@ -31,26 +30,18 @@ mongoose
   });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_BASE_URL,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: [
-      'Content-Type',
-      'Authorization',
-      'cache-control',
-      'Expires',
-      'pragma',
-    ],
+    origin: true, // reflect request origin
     credentials: true,
-  })
+  }),
 );
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.json());
-app.use('/api/auth',authRouter)
+app.use("/api/auth", authRouter);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/orders", adminOrderRouter);
 
@@ -62,7 +53,6 @@ app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
 
 app.use("/api/common/feature", commonFeatureRouter);
-
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
