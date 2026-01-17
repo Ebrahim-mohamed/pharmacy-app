@@ -52,7 +52,9 @@ function ProductImageUpload({
     console.log(response, "response");
 
     if (response?.data?.success) {
-      setUploadedImageUrl(response.data.result.url);
+      setUploadedImageUrl(
+        `http://localhost:5000${response.data.result.secure_url}`,
+      );
       setImageLoadingState(false);
     }
   }

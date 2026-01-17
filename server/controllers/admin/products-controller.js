@@ -1,11 +1,10 @@
-const { imageUploadUtil } = require("../../helpers/cloudinary");
+const { imageUploadUtil } = require("../../helpers/imageUpload");
 const Product = require("../../models/Product");
 
 const handleImageUpload = async (req, res) => {
   try {
-    const b64 = Buffer.from(req.file.buffer).toString("base64");
-    const url = "data:" + req.file.mimetype + ";base64," + b64;
-    const result = await imageUploadUtil(url);
+    // File is already saved to disk by multer, just return the path
+    const result = await imageUploadUtil(req.file);
 
     res.json({
       success: true,
@@ -103,9 +102,9 @@ const editProduct = async (req, res) => {
           price,
           salePrice,
           totalStock,
-        }
+        },
       },
-      { new: true } // Return the updated product
+      { new: true }, // Return the updated product
     );
 
     if (!updatedProduct) {
@@ -120,7 +119,6 @@ const editProduct = async (req, res) => {
       message: "Product edited successfully",
       product: updatedProduct,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -128,7 +126,6 @@ const editProduct = async (req, res) => {
     });
   }
 };
-
 
 // delete product
 
@@ -154,7 +151,6 @@ const deleteProduct = async (req, res) => {
     });
   }
 };
-
 
 module.exports = {
   handleImageUpload,
