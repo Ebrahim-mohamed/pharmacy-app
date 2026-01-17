@@ -1,7 +1,6 @@
+# Clinica Management Website
 
-# Pharmacy Management Website
-
-This project is a full-stack web application for managing pharmacy-related activities. It has two major sections: an **Admin Dashboard** for managing products, orders, and other pharmacy operations, and a **Client Section** where users can browse products, search, add to cart, and manage orders.
+This project is a full-stack web application for managing Clinica-related activities. It has two major sections: an **Admin Dashboard** for managing products, orders, and other Clinica operations, and a **Client Section** where users can browse products, search, add to cart, and manage orders.
 
 ## Table of Contents
 
@@ -20,6 +19,7 @@ This project is a full-stack web application for managing pharmacy-related activ
 ## Features
 
 ### Admin:
+
 - **Dashboard**: Provides an overview of key metrics like total sales, products, and orders.
 - **Product Management**: Add, update, delete, and categorize products.
 - **Order Management**: View, process, and manage customer orders.
@@ -27,6 +27,7 @@ This project is a full-stack web application for managing pharmacy-related activ
 - **Reporting**: Generate sales and performance reports.
 
 ### Client:
+
 - **Product Browsing**: View products with filtering and search options.
 - **Account Management**: View and edit account details.
 - **Order History**: Track past and current orders.
@@ -38,20 +39,18 @@ This project is a full-stack web application for managing pharmacy-related activ
 
 ## Technologies Used
 
-- **Frontend**: 
+- **Frontend**:
   - HTML5,
   - CSS (Tailwind CSS)
   - JavaScript (ES6+)
   - React
   - Shadcn UI
-  
 - **Backend**:
   - Node.js with Express.js
   - MongoDB (for database)
   - JWT (for authentication)
   - Docker
-  
-- **Deployment**: 
+- **Deployment**:
   - Cloud services such as [Render](https://e-commerce-mern-stack-1-zyrk.onrender.com)
 
 ---
@@ -76,17 +75,20 @@ This project is a full-stack web application for managing pharmacy-related activ
 ## Installation
 
 1. **Clone the repository:**
+
    ```
-   git clone https://github.com/ayman-ezzeldin/Pharmacy-App.git
+   git clone https://github.com/ayman-ezzeldin/Clinica-App.git
    ```
 
 2. **Install server dependencies:**
+
    ```
    cd server
    npm install
    ```
 
 3. **Install client dependencies:**
+
    ```
    cd client
    npm install
@@ -105,13 +107,16 @@ This project is a full-stack web application for managing pharmacy-related activ
 ## Usage
 
 ### Run the development server:
+
 1. **Start backend:**
+
    ```
    cd server
    npm start
    ```
 
 2. **Start frontend:**
+
    ```
    cd client
    npm run dev
@@ -126,7 +131,7 @@ This project is a full-stack web application for managing pharmacy-related activ
 
 1. **Product Management**: Admins can add new products, edit or remove existing products, and categorize products for better management.
 2. **Order Management**: View all orders, track the status of each order, and update order statuses.
-3. **Dashboard**: Visualize pharmacy performance metrics such as total sales and active orders.
+3. **Dashboard**: Visualize Clinica performance metrics such as total sales and active orders.
 
 ---
 
